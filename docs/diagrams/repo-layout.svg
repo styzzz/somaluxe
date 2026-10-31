@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="640" fill="#f8fafc"/>
+  <text x="450" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#0f172a">Repository layout (branch seller-agent-modules)</text>
+  <rect x="20" y="48" width="860" height="580" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <g font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="14" fill="#0f172a" style="white-space:pre">
+    <text x="40" y="78">somaluxe/</text>
+    <text x="40" y="100">├── .gitignore</text>
+    <text x="40" y="120">├── README.md</text>
+    <text x="40" y="140">├── pyproject.toml</text>
+    <text x="40" y="160">├── docs/</text>
+    <text x="40" y="180">│   ├── MANUAL.md</text>
+    <text x="40" y="200">│   ├── diagrams/</text>
+    <text x="40" y="220">│   └── screens/</text>
+    <text x="40" y="240">├── governance/</text>
+    <text x="40" y="260">│   ├── framework.md</text>
+    <text x="40" y="280">│   └── compliance-summary.md</text>
+    <text x="40" y="300">├── seller_agent/</text>
+    <text x="40" y="320">│   ├── __init__.py</text>
+    <text x="40" y="340">│   ├── __main__.py</text>
+    <text x="40" y="360">│   ├── assistant.py</text>
+    <text x="40" y="380">│   ├── tools.py</text>
+    <text x="40" y="400">│   ├── actions.py</text>
+    <text x="40" y="420">│   ├── backend.py</text>
+    <text x="40" y="440">│   └── modules/</text>
+    <text x="40" y="460">│       ├── __init__.py</text>
+    <text x="40" y="480">│       ├── sales.py</text>
+    <text x="40" y="500">│       ├── orders.py</text>
+    <text x="40" y="520">│       ├── marketing.py</text>
+    <text x="40" y="540">│       ├── inventory.py</text>
+    <text x="40" y="560">│       └── administration.py</text>
+    <text x="40" y="580">└── tests/</text>
+    <text x="40" y="600">    ├── test_assistant.py</text>
+    <text x="40" y="620">    └── test_modules.py</text>
+  </g>
+  <g font-size="13" fill="#334155">
+    <text x="400" y="340">CLI: /pending /approve /reject /quit</text>
+    <text x="400" y="360">tool-use loop, system prompt</text>
+    <text x="400" y="380">Tool dataclass, READ and WRITE kinds</text>
+    <text x="400" y="400">ActionQueue: propose, approve, reject</text>
+    <text x="400" y="420">Backend protocol and FixtureBackend</text>
+    <text x="400" y="460">MODULES dict and all_tools()</text>
+    <text x="400" y="480">Sales module</text>
+    <text x="400" y="500">Order Operations module</text>
+    <text x="400" y="520">Marketing and Growth module</text>
+    <text x="400" y="540">Inventory and Storage module</text>
+    <text x="400" y="560">Administration module (read only)</text>
+    <text x="400" y="600">11 unit tests (run with pytest)</text>
+    <text x="400" y="180">this manual and its diagrams</text>
+    <text x="400" y="200">SVG diagrams referenced by MANUAL.md</text>
+    <text x="400" y="220">captured console output, synthetic data</text>
+    <text x="400" y="260">full framework, controls and gaps</text>
+    <text x="400" y="280">one-page regulatory summary</text>
+    <text x="400" y="100">git ignore rules</text>
+    <text x="400" y="140">package metadata, dependencies</text>
+    <text x="400" y="120">project overview and run steps</text>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+# Captured output from `python -m seller_agent` (synthetic data, no API key set).
+
+### /approve A9999 (unknown ID)
+  File "/home/user/somaluxe/seller_agent/actions.py", line 37, in approve
+    a = self._items[action_id]
+        ~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'A9999'
+(exit code 1)
+
+### /approve (no ID; not a command, goes to the model)
+    raise TypeError(
+        '"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted"'
+    )
+TypeError: "Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted"
+(exit code 1)

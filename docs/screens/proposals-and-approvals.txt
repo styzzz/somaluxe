@@ -1,0 +1,85 @@
+# Captured output from synthetic data (real code, no model involved).
+
+Write tools: propose only. Synthetic fixture data (FixtureBackend, seed=7, TODAY=2026-10-24).
+
+>>> propose_price_change(sku='SKU-MUG-01', new_price=21.99, reason='Test price after competitor check')
+{
+  "action_id": "A0001",
+  "status": "pending",
+  "summary": "SKU-MUG-01: $18.99 -> $21.99 (+15.8%)",
+  "note": "Proposed only. A human must approve before anything changes."
+}
+
+>>> propose_ad_budget_change(campaign_id='C2', new_daily_budget=5.0, reason='ACOS above 30% target')
+{
+  "action_id": "A0002",
+  "status": "pending",
+  "summary": "Mugs - Exact: daily budget $15.0 -> $5.0",
+  "note": "Proposed only. A human must approve before anything changes."
+}
+
+>>> propose_restock(sku='SKU-TOTE-01', qty=10, reason='Days of cover below lead time plus safety')
+{
+  "action_id": "A0003",
+  "status": "pending",
+  "summary": "Create inbound shipment: 10 x SKU-TOTE-01 (~$64.00 at cost)",
+  "note": "Proposed only. A human must approve before anything changes."
+}
+
+>>> propose_refund(order_id='111-0000001-0000001', amount=18.99, reason='DEFECTIVE')
+{
+  "action_id": "A0004",
+  "status": "pending",
+  "summary": "Refund $18.99 on 111-0000001-0000001 (DEFECTIVE)",
+  "note": "Proposed only. A human must approve before anything changes."
+}
+
+>>> propose_refund(order_id='111-0000001-0000001', amount=99999, reason='x')  # validation
+{
+  "error": "amount must be between 0 and order total 18.99"
+}
+
+>>> pending queue before any approval
+A0001 SKU-MUG-01: $18.99 -> $21.99 (+15.8%)
+A0002 Mugs - Exact: daily budget $15.0 -> $5.0
+A0003 Create inbound shipment: 10 x SKU-TOTE-01 (~$64.00 at cost)
+A0004 Refund $18.99 on 111-0000001-0000001 (DEFECTIVE)
+
+>>> returns_report() before approval
+{
+  "returns": 6,
+  "by_reason": {
+    "CUSTOMER_CHANGED_MIND": 4,
+    "NOT_AS_DESCRIBED": 1,
+    "DEFECTIVE": 1
+  },
+  "return_rate_pct": 5.7,
+  "refunded_total": 246.91
+}
+
+>>> queue.approve('A0004', 'cli-user')  # refund
+status=approved decided_by=cli-user result={
+  "applied": "refund",
+  "order_id": "111-0000001-0000001",
+  "amount": 18.99,
+  "reason": "DEFECTIVE"
+}
+
+>>> returns_report() after approval
+{
+  "returns": 7,
+  "by_reason": {
+    "CUSTOMER_CHANGED_MIND": 4,
+    "NOT_AS_DESCRIBED": 1,
+    "DEFECTIVE": 2
+  },
+  "return_rate_pct": 6.7,
+  "refunded_total": 265.9
+}
+
+>>> queue.approve('A0004', 'cli-user')  # second time
+ValueError: A0004 is approved, not pending
+
+>>> queue.reject('A0002', 'cli-user')  # ad budget
+status=rejected decided_by=cli-user
+budget still 15.0 for Mugs - Exact

@@ -1,0 +1,19 @@
+# Captured output from synthetic data. Tool results are real; the model's replies are scripted.
+# Command: python -m seller_agent (with the model replaced by a scripted fake client)
+
+Seller assistant (synthetic data). Commands: /pending, /approve ID, /reject ID, /quit
+> Refund order 111-0000001-0000001 in full, the buyer says it arrived defective
+Proposed refund for $18.99 on 111-0000001-0000001. A human must approve it before anything changes.
+> Cut the Mugs campaign budget to $5 a day, its ACOS is too high
+Proposed a daily budget cut for Mugs - Exact from $15.0 to $5.0. It is not applied until approved.
+> /pending
+A0001 Refund $18.99 on 111-0000001-0000001 (DEFECTIVE)
+A0002 Mugs - Exact: daily budget $15.0 -> $5.0
+> /approve A0001
+approved {'applied': 'refund', 'order_id': '111-0000001-0000001', 'amount': 18.99, 'reason': 'DEFECTIVE'}
+> /reject A0002
+rejected
+> /pending
+> Show the returns report
+I read the returns report from the current data. It includes the refund you approved.
+> /quit

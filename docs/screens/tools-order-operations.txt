@@ -1,0 +1,84 @@
+ORDER OPERATIONS module (read tools)
+Synthetic fixture data (FixtureBackend, seed=7, TODAY=2026-10-24).
+
+>>> list_orders(status='Shipped', limit=2)
+[
+  {
+    "order_id": "111-0000001-0000001",
+    "date": "2026-10-15",
+    "sku": "SKU-MUG-01",
+    "qty": 1,
+    "status": "Shipped",
+    "ship_by": "2026-10-17",
+    "total": 18.99,
+    "buyer_note": ""
+  },
+  {
+    "order_id": "111-0000002-0000001",
+    "date": "2026-10-18",
+    "sku": "SKU-DIFF-01",
+    "qty": 1,
+    "status": "Shipped",
+    "ship_by": "2026-10-20",
+    "total": 34.99,
+    "buyer_note": ""
+  }
+]
+
+>>> late_shipment_risk()
+[
+  {
+    "order_id": "111-0000003-0000001",
+    "sku": "SKU-CANDLE-02",
+    "ship_by": "2026-10-24",
+    "overdue": false
+  },
+  {
+    "order_id": "111-0000006-0000001",
+    "sku": "SKU-TOTE-01",
+    "ship_by": "2026-10-23",
+    "overdue": true
+  },
+  {
+    "order_id": "111-0000021-0000001",
+    "sku": "SKU-MUG-01",
+    "ship_by": "2026-10-25",
+    "overdue": false
+  },
+  {
+    "order_id": "111-0000035-0000001",
+    "sku": "SKU-DIFF-01",
+    "ship_by": "2026-10-25",
+    "overdue": false
+  },
+  {
+    "order_id": "111-0000060-0000001",
+    "sku": "SKU-CANDLE-02",
+    "ship_by": "2026-10-25",
+    "overdue": false
+  },
+  {
+    "order_id": "111-0000069-0000001",
+    "sku": "SKU-DIFF-01",
+    "ship_by": "2026-10-25",
+    "overdue": false
+  },
+  {
+    "order_id": "111-0000091-0000001",
+    "sku": "SKU-MUG-01",
+    "ship_by": "2026-10-23",
+    "overdue": true
+  }
+]
+
+>>> returns_report()
+{
+  "returns": 6,
+  "by_reason": {
+    "CUSTOMER_CHANGED_MIND": 4,
+    "NOT_AS_DESCRIBED": 1,
+    "DEFECTIVE": 1
+  },
+  "return_rate_pct": 5.7,
+  "refunded_total": 246.91
+}

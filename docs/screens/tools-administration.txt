@@ -1,0 +1,56 @@
+ADMINISTRATION module (read tools)
+Synthetic fixture data (FixtureBackend, seed=7, TODAY=2026-10-24).
+
+>>> account_health()
+{
+  "order_defect_rate": 0.004,
+  "late_shipment_rate": 0.012,
+  "cancellation_rate": 0.008,
+  "valid_tracking_rate": 0.985,
+  "notices": [
+    {
+      "id": "N1",
+      "type": "POLICY_WARNING",
+      "text": "Listing SKU-DIFF-01 may need a safety data sheet."
+    }
+  ],
+  "status": {
+    "order_defect_rate": "ok",
+    "late_shipment_rate": "ok",
+    "cancellation_rate": "ok"
+  },
+  "limits": {
+    "order_defect_rate": 0.01,
+    "late_shipment_rate": 0.04,
+    "cancellation_rate": 0.025
+  }
+}
+
+>>> reconcile_payouts()
+[
+  {
+    "id": "S-2026-09",
+    "expected_payout": 2289.49,
+    "actual_payout": 2228.12,
+    "period": "2026-09-01/2026-09-30",
+    "variance": -61.37,
+    "needs_review": true
+  },
+  {
+    "id": "S-2026-08",
+    "expected_payout": 3980.12,
+    "actual_payout": 3980.12,
+    "period": "2026-08-01/2026-08-31",
+    "variance": 0.0,
+    "needs_review": false
+  }
+]
+
+>>> compliance_notices()
+[
+  {
+    "id": "N1",
+    "type": "POLICY_WARNING",
+    "text": "Listing SKU-DIFF-01 may need a safety data sheet."
+  }
+]

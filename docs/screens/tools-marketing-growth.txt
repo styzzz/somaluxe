@@ -1,0 +1,50 @@
+MARKETING & GROWTH module (read tools)
+Synthetic fixture data (FixtureBackend, seed=7, TODAY=2026-10-24).
+
+>>> campaign_performance()
+[
+  {
+    "id": "C1",
+    "name": "Candles - Auto",
+    "daily_budget": 30.0,
+    "spend_30d": 610.0,
+    "sales_30d": 2100.0,
+    "acos_pct": 29.0,
+    "roas": 3.44,
+    "over_target": false
+  },
+  {
+    "id": "C2",
+    "name": "Mugs - Exact",
+    "daily_budget": 15.0,
+    "spend_30d": 420.0,
+    "sales_30d": 540.0,
+    "acos_pct": 77.8,
+    "roas": 1.29,
+    "over_target": true
+  },
+  {
+    "id": "C3",
+    "name": "Brand Defense",
+    "daily_budget": 10.0,
+    "spend_30d": 150.0,
+    "sales_30d": 900.0,
+    "acos_pct": 16.7,
+    "roas": 6.0,
+    "over_target": false
+  }
+]
+
+>>> ad_efficiency_flags()
+[
+  {
+    "id": "C2",
+    "name": "Mugs - Exact",
+    "daily_budget": 15.0,
+    "spend_30d": 420.0,
+    "sales_30d": 540.0,
+    "acos_pct": 77.8,
+    "roas": 1.29,
+    "over_target": true
+  }
+]

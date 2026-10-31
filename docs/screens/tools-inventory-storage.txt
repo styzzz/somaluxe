@@ -1,0 +1,84 @@
+INVENTORY & STORAGE module (read tools)
+Synthetic fixture data (FixtureBackend, seed=7, TODAY=2026-10-24).
+
+>>> inventory_levels()
+[
+  {
+    "sku": "SKU-CANDLE-01",
+    "fulfillable": 55,
+    "inbound": 0,
+    "aged_90plus": 0,
+    "units_sold_30d": 14,
+    "unit_cube_ft3": 0.12,
+    "daily_rate": 0.47,
+    "days_of_cover": 117.9
+  },
+  {
+    "sku": "SKU-CANDLE-02",
+    "fulfillable": 89,
+    "inbound": 0,
+    "aged_90plus": 0,
+    "units_sold_30d": 16,
+    "unit_cube_ft3": 0.12,
+    "daily_rate": 0.53,
+    "days_of_cover": 166.9
+  },
+  {
+    "sku": "SKU-MUG-01",
+    "fulfillable": 164,
+    "inbound": 100,
+    "aged_90plus": 0,
+    "units_sold_30d": 24,
+    "unit_cube_ft3": 0.12,
+    "daily_rate": 0.8,
+    "days_of_cover": 330.0
+  },
+  {
+    "sku": "SKU-TOTE-01",
+    "fulfillable": 8,
+    "inbound": 0,
+    "aged_90plus": 0,
+    "units_sold_30d": 12,
+    "unit_cube_ft3": 0.12,
+    "daily_rate": 0.4,
+    "days_of_cover": 20.0
+  },
+  {
+    "sku": "SKU-DIFF-01",
+    "fulfillable": 129,
+    "inbound": 0,
+    "aged_90plus": 0,
+    "units_sold_30d": 28,
+    "unit_cube_ft3": 0.12,
+    "daily_rate": 0.93,
+    "days_of_cover": 138.2
+  },
+  {
+    "sku": "SKU-SOAP-01",
+    "fulfillable": 182,
+    "inbound": 0,
+    "aged_90plus": 25,
+    "units_sold_30d": 20,
+    "unit_cube_ft3": 0.12,
+    "daily_rate": 0.67,
+    "days_of_cover": 273.0
+  }
+]
+
+>>> replenishment_recommendations()
+[
+  {
+    "sku": "SKU-TOTE-01",
+    "days_of_cover": 20.0,
+    "suggested_qty": 10
+  }
+]
+
+>>> storage_risk()
+[
+  {
+    "sku": "SKU-SOAP-01",
+    "aged_90plus_units": 25,
+    "cube_ft3": 3.0
+  }
+]

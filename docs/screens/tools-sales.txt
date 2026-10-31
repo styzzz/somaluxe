@@ -1,0 +1,41 @@
+SALES module (read tools)
+Synthetic fixture data (FixtureBackend, seed=7, TODAY=2026-10-24).
+
+>>> sales_summary(days=30)
+{
+  "days": 30,
+  "orders": 66,
+  "units": 114,
+  "revenue": 2988.86,
+  "est_profit": 1143.13,
+  "est_margin_pct": 38.2
+}
+
+>>> top_products(days=30, n=3)
+[
+  {
+    "sku": "SKU-DIFF-01",
+    "units": 28,
+    "revenue": 979.72
+  },
+  {
+    "sku": "SKU-CANDLE-02",
+    "units": 16,
+    "revenue": 639.84
+  },
+  {
+    "sku": "SKU-MUG-01",
+    "units": 24,
+    "revenue": 455.76
+  }
+]
+
+>>> product_margin(sku='SKU-CANDLE-01')
+{
+  "sku": "SKU-CANDLE-01",
+  "price": 24.99,
+  "cost": 7.5,
+  "fees": 7.85,
+  "net_per_unit": 9.64,
+  "margin_pct": 38.6
+}

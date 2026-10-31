@@ -31,7 +31,7 @@ As built, the system does not make consequential decisions about people, and eve
 ## What the controls do now
 - Write tools only propose. Approval is outside the model. The assistant has no approve tool.
 - Input validation on refunds (amount ≤ order total), prices (> 0), ad budgets (≥ 0), restocks (> 0).
-- Schemas reject unknown fields. Tool errors are returned to the model, not raised.
+- Tool input schemas are advisory: unknown fields are not rejected by code. Tool errors are returned to the model, not raised.
 - Turn limit (8 steps). 11 unit tests pass.
 
 ## Critical gaps (ranked)
